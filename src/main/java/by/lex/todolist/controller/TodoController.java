@@ -1,4 +1,4 @@
-package by.lex.todolist.controllers;
+package by.lex.todolist.controller;
 
 import by.lex.todolist.security.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import by.lex.todolist.controllers.except.ResourceNotFoundException;
+import by.lex.todolist.controller.except.ResourceNotFoundException;
 import by.lex.todolist.repr.ToDoRepr;
 import by.lex.todolist.service.ToDoService;
 

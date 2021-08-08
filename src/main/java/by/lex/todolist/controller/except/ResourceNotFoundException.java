@@ -1,4 +1,4 @@
-package by.lex.todolist.controllers.except;
+package by.lex.todolist.controller.except;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

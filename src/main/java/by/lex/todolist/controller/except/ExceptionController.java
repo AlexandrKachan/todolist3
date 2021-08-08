@@ -1,4 +1,4 @@
-package by.lex.todolist.controllers.except;
+package by.lex.todolist.controller.except;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

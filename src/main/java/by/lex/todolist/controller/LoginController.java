@@ -1,4 +1,4 @@
-package by.lex.todolist.controllers;
+package by.lex.todolist.controller;
 
 import by.lex.todolist.service.UserService;
 import org.slf4j.Logger;
