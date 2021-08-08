@@ -52,6 +52,8 @@
                     <th scope="col">Description</th>
                     <th scope="col">User</th>
                     <th scope="col">Target date</th>
+                    <th scope="col">Complete</th>
+                    <th scope="col">List</th>
                     <th scope="col">Actions</th>
                 </tr>
                 </thead>
@@ -59,11 +61,13 @@
                 <tr th:if="${todos.empty}">
                     <td class="text-center" colspan="5">No data</td>
                 </tr>
-                <tr th:each="todo : ${todos}">
-                    <th scope="row" th:text="*{todo.id}">1</th>
+                <tr th:each="todo, iterStat : ${todos}" th:class="${iterStat.odd}? 'odd'">
+                    <th scope="row" th:text="*{iterStat.index + 1}">1</th>
                     <td th:text="${todo.description}">Bootstrap 4 CDN and Starter Template</td>
                     <td th:text="${todo.username}">Cristina</td>
                     <td th:text="${todo.targetDate}">01.01.2020</td>
+                    <td> <a  th:href="@{/todo/complete/{id}(id=${todo.id})}"><span th:text="${todo.complete}"></span></a> </td>
+                    <td th:text="${todo.list}">List 1</td>
                     <td>
                         <a class="btn btn-success" th:href="@{/todo/{id}(id=${todo.id})}"><i class="fas fa-edit"></i></a>
                         <a class="btn btn-danger" th:href="@{/todo/delete/{id}(id=${todo.id})}"><i class="far fa-trash-alt"></i></a>

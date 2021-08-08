@@ -1,5 +1,6 @@
 package by.lex.todolist.repr;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.format.annotation.DateTimeFormat;
 import by.lex.todolist.persist.entity.ToDo;
 
@@ -20,14 +21,25 @@ public class ToDoRepr {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate targetDate;
 
+
+    @Value("false")
+    private boolean complete;
+
+    @NotEmpty
+    private String list;
+
+
+
     public ToDoRepr() {
     }
 
-    public ToDoRepr(Long id, @NotEmpty String description, String username, @NotNull LocalDate targetDate) {
+    public ToDoRepr(Long id, @NotEmpty String description, String username, @NotNull LocalDate targetDate,  Boolean complete, @NotEmpty String list) {
         this.id = id;
         this.description = description;
         this.username = username;
         this.targetDate = targetDate;
+        this.complete = complete;
+        this.list = list;
     }
 
     public ToDoRepr(ToDo toDo) {
@@ -35,6 +47,25 @@ public class ToDoRepr {
         this.description = toDo.getDescription();
         this.targetDate = toDo.getTargetDate();
         this.username = toDo.getUser().getUsername();
+        this.complete = toDo.isComplet();
+        this.list = toDo.getList();
+    }
+
+
+    public String getList() {
+        return list;
+    }
+
+    public void setList(String list) {
+        this.list = list;
+    }
+
+    public boolean isComplete() {
+        return complete;
+    }
+
+    public void setComplete(boolean complete) {
+        this.complete = complete;
     }
 
     public Long getId() {

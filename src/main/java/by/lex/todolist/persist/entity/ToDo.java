@@ -1,6 +1,9 @@
 package by.lex.todolist.persist.entity;
 
+import org.springframework.beans.factory.annotation.Value;
+
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
 @Entity
@@ -21,7 +24,32 @@ public class ToDo {
     @Column
     private LocalDate targetDate;
 
+    @Column
+    @Value("false")
+    private boolean complet;
+
+    @Column
+        private String list;
+
+
+
     public ToDo() {
+    }
+
+    public String getList() {
+        return list;
+    }
+
+    public void setList(String list) {
+        this.list = list;
+    }
+
+    public boolean isComplet() {
+        return complet;
+    }
+
+    public void setComplet(boolean complet) {
+        this.complet = complet;
     }
 
     public Long getId() {

@@ -44,6 +44,8 @@ public class ToDoService {
                     toDo.setDescription(toDoRepr.getDescription());
                     toDo.setTargetDate(toDoRepr.getTargetDate());
                     toDo.setUser(user);
+                    toDo.setComplet(toDoRepr.isComplete());
+                    toDo.setList(toDoRepr.getList());
                     toDoRepository.save(toDo);
                 });
     }

@@ -70,4 +70,12 @@ public class TodoController {
         toDoService.delete(id);
         return "redirect:/";
     }
+    @GetMapping("/todo/complete/{id}")
+    public String comleteTodo(@PathVariable Long id) {
+        ToDoRepr toDoRepr = toDoService.findById(id)
+                .orElseThrow(ResourceNotFoundException::new);
+        toDoRepr.setComplete(!toDoRepr.isComplete());
+        toDoService.save(toDoRepr);
+        return "redirect:/";
+    }
 }
