@@ -11,12 +11,14 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
-@EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+@EnableWebSecurity //включили WebSecurity
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
+    //извлечение пароля и пользователя из БД для авторизации
     private PasswordEncoder passwordEncoder;
     private UserAuthService userAuthService;
 
+    //внедрили их с помощью сетеров
     @Autowired
     public void setPasswordEncoder(PasswordEncoder passwordEncoder) {
         this.passwordEncoder = passwordEncoder;
@@ -27,19 +29,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         this.userAuthService = userAuthService;
     }
 
+    // конфигурируем
+    // как извлекаем данные о пользователях
     @Override
     protected void configure(AuthenticationManagerBuilder auth) {
         auth.authenticationProvider(authenticationProvider());
     }
 
+    // как и что защищаем
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/todo/*").authenticated()
+                .antMatchers("/todo/*").authenticated() //только авторизованные пользователи
                 .and()
                 .formLogin()
-                .loginPage("/login")
+                .loginPage("/login") //страница логина
                 .loginProcessingUrl("/authenticateTheUser")
                 .permitAll()
                 .and()
@@ -48,6 +53,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll();
     }
 
+    // передаем authenticationProvider  passwordEncoder и userAuthService
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider auth = new DaoAuthenticationProvider();

@@ -12,7 +12,7 @@ import by.lex.todolist.persist.repo.UserRepository;
 
 import javax.transaction.Transactional;
 import java.util.Collections;
-
+//извлечение информации о пользователе из БД
 @Service
 @Transactional
 public class UserAuthService implements UserDetailsService {

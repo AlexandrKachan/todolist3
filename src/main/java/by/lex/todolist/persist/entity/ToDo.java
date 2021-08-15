@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.awt.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "todos")
@@ -33,8 +35,24 @@ public class ToDo {
 
 
 
-    public ToDo() {
-    }
+//    @OneToMany(
+//            mappedBy = "todo",
+//            cascade = CascadeType.ALL,
+//            orphanRemoval = true
+//    )
+//private List<by.lex.todolist.persist.entity.List> lists;
+//
+//
+//    public List<by.lex.todolist.persist.entity.List> getLists() {
+//        return lists;
+//    }
+//
+//    public void setLists(List<by.lex.todolist.persist.entity.List> lists) {
+//        this.lists = lists;
+//    }
+//
+//    public ToDo() {
+//    }
 
     public String getList() {
         return list;

@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:postgresql://localhost:5432/todo_app_db2</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="mytest@192.168.1.7" uuid="c4fadbed-dec0-44fb-8a03-f832d846069c">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://192.168.1.7:5432/mytest</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
