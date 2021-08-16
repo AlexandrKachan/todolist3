@@ -8,6 +8,7 @@ services:
     environment:
       POSTGRES_PASSWORD: 7502
       POSTGRES_DB: todo_app_db2
+      JDBC_DATABASE_URL: jdbc:postgresql://db:5432/todo_app_db2
     ports:
       - 5433:5432
 
@@ -15,4 +16,9 @@ services:
     image: adminer
     restart: always
     ports:
-      - 8083:8080
+      - 8087:8080
+      
+  app:
+    image: todolist334
+    ports:
+     - 8089:8089
