@@ -37,8 +37,13 @@ public class TodoController {
                 .map(toDoService::findToDoByUser_Username)
                 .orElseThrow(IllegalStateException::new);
         model.addAttribute("todos", todos);
+//        model.addAttribute("todoLists", todoLists);
         return "todoList";
     }
+
+    // todo добавить маппинг для листов: todo-list  @GetMapping("/todo-list/{id}")
+
+    // todo добавить CRUD для листов
 
     @GetMapping("/todo/{id}")
     public String todoPage(@PathVariable("id") Long id, Model model) {
@@ -51,6 +56,7 @@ public class TodoController {
     @GetMapping("/todo/create")
     public String createTodoPage(Model model) {
         model.addAttribute("todo", new ToDoRepr());
+//        model.addAttribute("todoLists", todoLists);
         return "todo";
     }
 
