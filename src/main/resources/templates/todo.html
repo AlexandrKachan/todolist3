@@ -59,6 +59,7 @@
                     <small class="text-danger" th:each="err: ${#fields.errors('targetDate')}" th:text="${err}" placeholder="Enter true o false"></small>
                 </div>
                 <div class="form-group">
+                <!--    TODO выбрать из списка combobox https://www.baeldung.com/thymeleaf-select-option                -->
                     <label for="listName">List Name</label>
                     <input type="text" class="form-control" id="listName" th:field="*{list}"placeholder="Enter List name" >
                     <small class="text-danger" th:each="err: ${#fields.errors('targetDate')}" th:text="${err}"></small>
